@@ -1,0 +1,58 @@
+{
+  "manifest_version": 3,
+  "name": "Textora – Extract Any Text",
+  "short_name": "Textora",
+  "version": "2.0",
+  "description": "Instantly copy all readable text from any webpage — full page, selected area, canvas elements, and image OCR.",
+  "permissions": ["activeTab", "scripting", "clipboardWrite", "storage"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Textora – Extract Any Text",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "lib/tesseract.min.js",
+        "ocr.js",
+        "content.js"
+      ]
+    }
+  ],
+  "commands": {
+    "run_select_area": {
+      "suggested_key": {
+        "default": "Alt+S"
+      },
+      "description": "Selected Area: Copy highlighted text or draw box"
+    },
+    "run_copy_image": {
+      "suggested_key": {
+        "default": "Alt+I"
+      },
+      "description": "Copy from Image: OCR visual text"
+    },
+    "run_copy_link": {
+      "suggested_key": {
+        "default": "Alt+L"
+      },
+      "description": "Copy from Link: Click to copy link text"
+    }
+  }
+}
+

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Textora Landing Page - Interactive Simulator & Scripts
+   Witcopy Landing Page - Interactive Simulator & Scripts
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -287,7 +287,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       screenInstructions.textContent = prevText;
       
-      const ocrText = 'TEXTORA OCR\nFAST MULTIMODAL EXTRACTION\n100% RELIABLE TEXT CAPTURE';
+      const ocrText = 'WITCOPY OCR\nFAST MULTIMODAL EXTRACTION\n100% RELIABLE TEXT CAPTURE';
       addToHistory('ocr', ocrText);
       copyToSystemClipboard(ocrText);
     }, 1500);

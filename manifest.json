@@ -1,13 +1,13 @@
 {
   "manifest_version": 3,
-  "name": "Textora – Extract Any Text",
-  "short_name": "Textora",
+  "name": "Witcopy – Extract Any Text",
+  "short_name": "Witcopy",
   "version": "2.0",
   "description": "Instantly copy all readable text from any webpage — full page, selected area, canvas elements, and image OCR.",
   "permissions": ["activeTab", "scripting", "clipboardWrite", "storage"],
   "action": {
     "default_popup": "popup.html",
-    "default_title": "Textora – Extract Any Text",
+    "default_title": "Witcopy – Extract Any Text",
     "default_icon": {
       "16": "icons/icon16.png",
       "32": "icons/icon32.png",

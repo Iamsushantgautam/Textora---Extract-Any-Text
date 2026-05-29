@@ -1,49 +1,57 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Textora – Extract Any Text (Chrome Extension)</title>
-  <meta name="description" content="Instantly copy all readable text from any webpage — full page, selected area, canvas elements, and image OCR. Powered by Gemini 2.5 Flash.">
+  <title>Witcopy Extract Any Text (Chrome Extension)</title>
+  <meta name="description"
+    content="Instantly copy all readable text from any webpage â€” full page, selected area, canvas elements, and image OCR. Powered by Gemini 2.5 Flash.">
   <link rel="icon" type="image/png" href="favicon.png">
-  
+
   <!-- SEO & Social Meta Tags -->
-  <meta property="og:title" content="Textora – Extract Any Text">
-  <meta property="og:description" content="Instantly copy all readable text from any webpage — full page, selected area, canvas elements, and image OCR.">
+  <meta property="og:title" content="Witcopy â€“ Extract Any Text">
+  <meta property="og:description"
+    content="Instantly copy all readable text from any webpage â€” full page, selected area, canvas elements, and image OCR.">
   <meta property="og:image" content="logo.webp">
   <meta name="twitter:card" content="summary_large_image">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
+
   <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="style.css?v=1.7">
 </head>
+
 <body>
 
   <!-- Navigation Bar -->
   <header class="navbar" id="navbar">
     <div class="nav-container">
       <a href="#" class="brand">
-        <img src="icon128.png" alt="Textora Logo" class="brand-logo" id="brand-logo-img">
-        <span class="brand-name">Textora</span>
+        <img src="icon128.png" alt="Witcopy Logo" class="brand-logo" id="brand-logo-img">
+        <span class="brand-name">Witcopy</span>
       </a>
-      
+
       <nav class="nav-menu" id="nav-menu">
         <a href="#features" class="nav-link">Features</a>
         <a href="#guide" class="nav-link">Setup Guide</a>
         <a href="#playground" class="nav-link">Live Demo</a>
         <a href="#specs" class="nav-link">Tech Specs</a>
         <a href="#faq" class="nav-link">FAQ</a>
+        <a href="pages/contact.html" class="nav-link">Contact</a>
+        <a href="pages/feedback.html" class="nav-link">Feedback</a>
       </nav>
-      
+
       <div class="nav-cta-wrapper">
-        <a href="textora-extension.zip" download class="btn btn-primary btn-nav" id="nav-install-btn">
+        <a href="witcopy-extension.zip" download class="btn btn-primary btn-nav" id="nav-install-btn">
           <i class="fas fa-file-archive"></i> Download ZIP
         </a>
       </div>
@@ -54,7 +62,7 @@
   <section class="hero-section">
     <div class="hero-glow-1"></div>
     <div class="hero-glow-2"></div>
-    
+
     <div class="container hero-container">
       <div class="hero-content">
         <div class="hero-badge" id="hero-badge-tag">
@@ -65,10 +73,11 @@
           Extract Any Text, <span class="gradient-text">Anywhere</span>, Instantly.
         </h1>
         <p class="hero-description">
-          A premium Chrome Extension that lets you extract text from difficult web sources—images (OCR), canvas elements, hyperlinks, and visual selection areas—without page navigation.
+          A premium Chrome Extension that lets you extract text from difficult web sourcesâ€”images (OCR), canvas
+          elements, hyperlinks, and visual selection areasâ€”without page navigation.
         </p>
         <div class="hero-ctas">
-          <a href="textora-extension.zip" download class="btn btn-primary btn-lg" id="hero-primary-cta">
+          <a href="witcopy-extension.zip" download class="btn btn-primary btn-lg" id="hero-primary-cta">
             <i class="fas fa-file-archive"></i> Download Extension <span class="btn-subtext">ZIP File</span>
           </a>
           <a href="#playground" class="btn btn-secondary btn-lg" id="hero-secondary-cta">
@@ -92,7 +101,7 @@
           </div>
         </div>
       </div>
-      
+
       <!-- Interactive Preview/Mockup Window -->
       <div class="hero-preview">
         <div class="browser-window">
@@ -103,7 +112,7 @@
               <span class="dot dot-green"></span>
             </div>
             <div class="browser-address">
-              <i class="fas fa-lock"></i> https://textora.vercel.app/article
+              <i class="fas fa-lock"></i> https://witcopy.vercel.app/article
             </div>
           </div>
           <div class="browser-content">
@@ -116,7 +125,7 @@
               <div class="mock-body">
                 <div class="mock-text-title"></div>
                 <div class="mock-text-paragraph-long"></div>
-                
+
                 <!-- Simulated Selection Area -->
                 <div class="mock-selection-container">
                   <div class="mock-image-container">
@@ -129,13 +138,13 @@
 
                 <div class="mock-text-paragraph-medium"></div>
               </div>
-              
+
               <!-- Simulated Extension Popup Overlay -->
               <div class="mock-extension-popup">
                 <div class="popup-header">
                   <div class="popup-title">
-                    <img src="icon128.png" alt="Textora Icon" class="popup-logo">
-                    <span>Textora</span>
+                    <img src="icon128.png" alt="Witcopy Icon" class="popup-logo">
+                    <span>Witcopy</span>
                   </div>
                   <i class="fas fa-cog text-muted"></i>
                 </div>
@@ -148,7 +157,7 @@
                   <div class="history-preview-title">Recent Extracts</div>
                   <div class="history-item">
                     <span class="history-badge ocr">OCR</span>
-                    <span class="history-text">Textora - Extract Any Text Instantly</span>
+                    <span class="history-text">Witcopy – Extract Any Text Instantly</span>
                     <i class="fas fa-copy icon-copy"></i>
                   </div>
                 </div>
@@ -166,9 +175,10 @@
       <div class="section-header">
         <span class="section-eyebrow"><i class="fas fa-bolt"></i> Core Capabilities</span>
         <h2 class="section-title">Copied in Seconds. <span class="gradient-text">Zero Friction.</span></h2>
-        <p class="section-subtitle">Tackle any text source with our specialized selection modes. Designed to save you time and keyboard mileage.</p>
+        <p class="section-subtitle">Tackle any text source with our specialized selection modes. Designed to save you
+          time and keyboard mileage.</p>
       </div>
-      
+
       <div class="features-grid">
         <!-- Feature 1 -->
         <div class="feature-card" id="feature-card-area">
@@ -177,7 +187,8 @@
           </div>
           <h3 class="feature-card-title">Selected Area</h3>
           <p class="feature-card-description">
-            Draw a selection box around any content on your screen. The extension spatially resolves and extracts the raw text coordinates, letting you skip sidebars and formatting.
+            Draw a selection box around any content on your screen. The extension spatially resolves and extracts the
+            raw text coordinates, letting you skip sidebars and formatting.
           </p>
           <div class="feature-shortcut">
             <span class="shortcut-key">Alt</span> + <span class="shortcut-key">S</span>
@@ -191,7 +202,8 @@
           </div>
           <h3 class="feature-card-title">Advanced Image OCR</h3>
           <p class="feature-card-description">
-            Extract text from screenshots, graphics, or PDF viewers using our dual-engine pipeline. Leverages the state-of-the-art Gemini 2.5 Flash API or runs 100% offline via Tesseract.js.
+            Extract text from screenshots, graphics, or PDF viewers using our dual-engine pipeline. Leverages the
+            state-of-the-art Gemini 2.5 Flash API or runs 100% offline via Tesseract.js.
           </p>
           <div class="feature-shortcut">
             <span class="shortcut-key">Alt</span> + <span class="shortcut-key">I</span>
@@ -205,7 +217,8 @@
           </div>
           <h3 class="feature-card-title">Copy from Link</h3>
           <p class="feature-card-description">
-            Tired of accidentally clicking links while trying to copy their anchor text? Activate Link Mode, hover, and copy link text directly without triggering redirects.
+            Tired of accidentally clicking links while trying to copy their anchor text? Activate Link Mode, hover, and
+            copy link text directly without triggering redirects.
           </p>
           <div class="feature-shortcut">
             <span class="shortcut-key">Alt</span> + <span class="shortcut-key">L</span>
@@ -219,7 +232,8 @@
           </div>
           <h3 class="feature-card-title">History & Search Log</h3>
           <p class="feature-card-description">
-            Every text snippet you capture is saved locally. Quickly search, filter, and copy previous clips from the pop-out history drawer inside the extension.
+            Every text snippet you capture is saved locally. Quickly search, filter, and copy previous clips from the
+            pop-out history drawer inside the extension.
           </p>
           <div class="feature-shortcut">
             <span class="shortcut-key">Auto</span> <span class="shortcut-label">Saved</span>
@@ -235,9 +249,10 @@
       <div class="section-header">
         <span class="section-eyebrow"><i class="fas fa-rocket"></i> Quick Setup</span>
         <h2 class="section-title">Get Started in <span class="gradient-text">Under 2 Minutes.</span></h2>
-        <p class="section-subtitle">Follow these quick steps to set up Textora in developer mode and start capturing text in seconds.</p>
+        <p class="section-subtitle">Follow these quick steps to set up Witcopy in developer mode and start capturing
+          text in seconds.</p>
       </div>
-      
+
       <div class="guide-grid">
         <!-- Left Side: Prepare / Install -->
         <div class="guide-card">
@@ -250,28 +265,32 @@
               <span class="step-num-badge">1</span>
               <div class="step-text">
                 <strong>Download the ZIP</strong>
-                <p><a href="textora-extension.zip" download class="text-indigo">Download the extension ZIP archive</a> to your computer.</p>
+                <p><a href="witcopy-extension.zip" download class="text-indigo">Download the extension ZIP archive</a>
+                  to your computer.</p>
               </div>
             </li>
             <li>
               <span class="step-num-badge">2</span>
               <div class="step-text">
                 <strong>Extract the Archive</strong>
-                <p>Extract (unzip) the downloaded <code>textora-extension.zip</code> file into a normal folder of your choice.</p>
+                <p>Extract (unzip) the downloaded <code>witcopy-extension.zip</code> file into a normal folder of your
+                  choice.</p>
               </div>
             </li>
             <li>
               <span class="step-num-badge">3</span>
               <div class="step-text">
                 <strong>Enable Developer Mode</strong>
-                <p>Open Google Chrome, navigate to <code>chrome://extensions/</code>, and toggle <strong>Developer mode</strong> in the top-right corner.</p>
+                <p>Open Google Chrome, navigate to <code>chrome://extensions/</code>, and toggle <strong>Developer
+                    mode</strong> in the top-right corner.</p>
               </div>
             </li>
             <li>
               <span class="step-num-badge">4</span>
               <div class="step-text">
                 <strong>Load Unpacked Folder</strong>
-                <p>Click the <strong>Load unpacked</strong> button (top-left) and select the <strong>extracted folder</strong> containing the <code>manifest.json</code> file.</p>
+                <p>Click the <strong>Load unpacked</strong> button (top-left) and select the <strong>extracted
+                    folder</strong> containing the <code>manifest.json</code> file.</p>
               </div>
             </li>
           </ul>
@@ -288,21 +307,24 @@
               <span class="step-num-badge">1</span>
               <div class="step-text">
                 <strong>Pin for Easy Access</strong>
-                <p>Click the Extensions puzzle icon in the Chrome toolbar and click the pin icon next to <strong>Textora</strong>.</p>
+                <p>Click the Extensions puzzle icon in the Chrome toolbar and click the pin icon next to
+                  <strong>Witcopy</strong>.</p>
               </div>
             </li>
             <li>
               <span class="step-num-badge">2</span>
               <div class="step-text">
                 <strong>Activate a Selection Mode</strong>
-                <p>Click the Textora icon to open the popup, or use hotkeys: <strong>Alt+S</strong> (Area), <strong>Alt+I</strong> (OCR), or <strong>Alt+L</strong> (Links).</p>
+                <p>Click the Witcopy icon to open the popup, or use hotkeys: <strong>Alt+S</strong> (Area),
+                  <strong>Alt+I</strong> (OCR), or <strong>Alt+L</strong> (Links).</p>
               </div>
             </li>
             <li>
               <span class="step-num-badge">3</span>
               <div class="step-text">
                 <strong>Extract & Auto-Copy</strong>
-                <p>Select your content. Extracted text is instantly copied to your clipboard and logged in your secure history drawer.</p>
+                <p>Select your content. Extracted text is instantly copied to your clipboard and logged in your secure
+                  history drawer.</p>
               </div>
             </li>
           </ul>
@@ -317,8 +339,9 @@
     <div class="container">
       <div class="section-header">
         <span class="section-eyebrow"><i class="fas fa-play-circle"></i> Interactive Demo</span>
-        <h2 class="section-title">See Textora <span class="gradient-text">in Action.</span></h2>
-        <p class="section-subtitle">Interact with the mock browser below to test the core features of the Chrome extension without installing it.</p>
+        <h2 class="section-title">See Witcopy <span class="gradient-text">in Action.</span></h2>
+        <p class="section-subtitle">Interact with the mock browser below to test the core features of the Chrome
+          extension without installing it.</p>
       </div>
 
       <div class="playground-layout">
@@ -332,12 +355,12 @@
             </div>
             <div class="simulator-tabs">
               <div class="simulator-tab active">
-                <img src="icon128.png" alt="Textora Tab Logo" class="tab-icon">
-                Textora Sandbox
+                <img src="icon128.png" alt="Witcopy Tab Logo" class="tab-icon">
+                Witcopy Sandbox
               </div>
             </div>
           </div>
-          
+
           <!-- Mode Toolbar Selector -->
           <div class="simulator-toolbar">
             <span class="toolbar-label">Select Mode:</span>
@@ -388,8 +411,10 @@
                     <span class="grid-val">99.8%</span>
                   </div>
                 </div>
-                <p class="sandbox-desc" data-text="The Textora platform enables high-efficiency data acquisition from non-selectable web interfaces.">
-                  The Textora platform enables high-efficiency data acquisition from non-selectable web interfaces. It functions via spatial overlay mapping, rendering pixel blocks into OCR characters dynamically.
+                <p class="sandbox-desc"
+                  data-text="The Witcopy platform enables high-efficiency data acquisition from non-selectable web interfaces.">
+                  The Witcopy platform enables high-efficiency data acquisition from non-selectable web interfaces. It
+                  functions via spatial overlay mapping, rendering pixel blocks into OCR characters dynamically.
                 </p>
               </div>
 
@@ -398,9 +423,9 @@
                 <h3 class="sandbox-title">Extract Text from Images</h3>
                 <p class="sandbox-desc">Double click the image or draw a box over it to trigger simulated OCR.</p>
                 <div class="ocr-playground-image-container" id="ocr-img-container">
-                  <img src="logo.webp" alt="Textora Infographic Logo" class="ocr-target-image" id="ocr-target-image-el">
+                  <img src="logo.webp" alt="Witcopy Infographic Logo" class="ocr-target-image" id="ocr-target-image-el">
                   <div class="ocr-marker-overlay">
-                    <div class="text-marker" style="top: 25%; left: 35%;">TEXTORA OCR</div>
+                    <div class="text-marker" style="top: 25%; left: 35%;">WITCOPY OCR</div>
                     <div class="text-marker" style="top: 50%; left: 24%;">FAST MULTIMODAL EXTRACTION</div>
                     <div class="text-marker" style="top: 72%; left: 33%;">100% RELIABLE TEXT CAPTURE</div>
                   </div>
@@ -412,9 +437,10 @@
               <div class="sandbox-link-content" id="content-link-pane">
                 <h3 class="sandbox-title">Copy Link Text</h3>
                 <p class="sandbox-desc">Clicking any link below will copy its text without redirecting your browser.</p>
-                
+
                 <div class="sandbox-links-list">
-                  <a href="textora-extension.zip" download class="sandbox-sim-link" data-text="Download V2.0 Setup Installer">
+                  <a href="witcopy-extension.zip" download class="sandbox-sim-link"
+                    data-text="Download V2.0 Setup Installer">
                     <i class="fas fa-download"></i> Download V2.0 Setup Installer
                   </a>
                   <a href="#playground" class="sandbox-sim-link" data-text="Access Gemini API Developer Console">
@@ -439,7 +465,7 @@
             <i class="fas fa-search search-icon"></i>
             <input type="text" placeholder="Search log history..." class="search-input" id="search-history-input">
           </div>
-          
+
           <!-- History Items Container -->
           <div class="sidebar-history-list" id="history-items-list">
             <!-- Dynamic items go here -->
@@ -464,15 +490,18 @@
     <div class="container">
       <div class="specs-grid">
         <div class="specs-details">
-          <span class="section-eyebrow" style="justify-content:flex-start;"><i class="fas fa-shield-alt"></i> Architecture</span>
+          <span class="section-eyebrow" style="justify-content:flex-start;"><i class="fas fa-shield-alt"></i>
+            Architecture</span>
           <h2 class="section-title text-left">Built for <span class="gradient-text">Speed</span> &amp; Privacy.</h2>
-          <p class="specs-intro">Textora runs natively within your Chrome sandbox, keeping your browser fast and your private data completely secure.</p>
-          
+          <p class="specs-intro">Witcopy runs natively within your Chrome sandbox, keeping your browser fast and your
+            private data completely secure.</p>
+
           <div class="spec-row">
             <div class="spec-icon"><i class="fas fa-shield-alt"></i></div>
             <div class="spec-info">
               <h4>100% Privacy Focused</h4>
-              <p>We do not store or transmit your extracted text. Offline Tesseract.js processing is done entirely on your machine. Gemini OCR runs directly through Chrome's secure network layer.</p>
+              <p>We do not store or transmit your extracted text. Offline Tesseract.js processing is done entirely on
+                your machine. Gemini OCR runs directly through Chrome's secure network layer.</p>
             </div>
           </div>
 
@@ -480,7 +509,8 @@
             <div class="spec-icon"><i class="fas fa-bolt"></i></div>
             <div class="spec-info">
               <h4>Manifest V3 Compliant</h4>
-              <p>Designed and built using Chrome's modern Extension architecture. Uses service workers for background tasks, improving system resource usage and battery life.</p>
+              <p>Designed and built using Chrome's modern Extension architecture. Uses service workers for background
+                tasks, improving system resource usage and battery life.</p>
             </div>
           </div>
 
@@ -488,23 +518,27 @@
             <div class="spec-icon"><i class="fas fa-code"></i></div>
             <div class="spec-info">
               <h4>Bypasses Content Security Policies (CSP)</h4>
-              <p>Tired of extensions failing on sites like GitHub or Twitter because of script blockages? Textora routes API requests securely via the background service worker, ensuring it works on 100% of websites.</p>
+              <p>Tired of extensions failing on sites like GitHub or Twitter because of script blockages? Witcopy routes
+                API requests securely via the background service worker, ensuring it works on 100% of websites.</p>
             </div>
           </div>
         </div>
 
         <!-- FAQ Cards -->
         <div class="faq-container" id="faq">
-          <span class="section-eyebrow" style="justify-content:flex-start;"><i class="fas fa-question-circle"></i> FAQ</span>
+          <span class="section-eyebrow" style="justify-content:flex-start;"><i class="fas fa-question-circle"></i>
+            FAQ</span>
           <h3 class="faq-section-title">Frequently Asked <span class="gradient-text">Questions.</span></h3>
-          
+
           <div class="faq-item">
             <div class="faq-question">
               <span>Do I need a Gemini API Key to use this?</span>
               <i class="fas fa-chevron-down faq-arrow"></i>
             </div>
             <div class="faq-answer">
-              <p>No, you do not. Textora includes Tesseract.js running fully locally in your browser to perform OCR offline. If you want maximum speed and accuracy for complex text, you can configure your own Gemini API Key (Gemini 2.5 Flash is currently free to use).</p>
+              <p>No, you do not. Witcopy includes Tesseract.js running fully locally in your browser to perform OCR
+                offline. If you want maximum speed and accuracy for complex text, you can configure your own Gemini API
+                Key (Gemini 2.5 Flash is currently free to use).</p>
             </div>
           </div>
 
@@ -514,7 +548,9 @@
               <i class="fas fa-chevron-down faq-arrow"></i>
             </div>
             <div class="faq-answer">
-              <p>Standard selection forces you to select lines of text sequentially. Selected Area lets you draw a physical bounding box. It then traverses the page's DOM elements and extracts only the text that visually overlaps with that box. Ideal for columns, graphs, and tables.</p>
+              <p>Standard selection forces you to select lines of text sequentially. Selected Area lets you draw a
+                physical bounding box. It then traverses the page's DOM elements and extracts only the text that
+                visually overlaps with that box. Ideal for columns, graphs, and tables.</p>
             </div>
           </div>
 
@@ -524,7 +560,8 @@
               <i class="fas fa-chevron-down faq-arrow"></i>
             </div>
             <div class="faq-answer">
-              <p>Never. Your history is stored inside the local storage of your web browser (`chrome.storage.local`). We have no servers, no analytic scripts tracking your copies, and zero access to your captured text.</p>
+              <p>Never. Your history is stored inside the local storage of your web browser (`chrome.storage.local`). We
+                have no servers, no analytic scripts tracking your copies, and zero access to your captured text.</p>
             </div>
           </div>
 
@@ -534,7 +571,9 @@
               <i class="fas fa-chevron-down faq-arrow"></i>
             </div>
             <div class="faq-answer">
-              <p>You can toggle actions instantly using the standard hotkeys: Alt+S (Selected Area), Alt+I (Copy from Image OCR), and Alt+L (Copy Link Text). These shortcuts can be customized in `chrome://extensions/shortcuts`.</p>
+              <p>You can toggle actions instantly using the standard hotkeys: Alt+S (Selected Area), Alt+I (Copy from
+                Image OCR), and Alt+L (Copy Link Text). These shortcuts can be customized in
+                `chrome://extensions/shortcuts`.</p>
             </div>
           </div>
         </div>
@@ -550,20 +589,28 @@
       <!-- Column 1: Brand Info & Copyright -->
       <div class="footer-brand">
         <div class="footer-logo-wrapper">
-          <img src="icon128.png" alt="Textora Footer Logo" class="footer-logo">
-          <span class="footer-logo-text">Textora</span>
+          <img src="icon128.png" alt="Witcopy Footer Logo" class="footer-logo">
+          <span class="footer-logo-text">Witcopy</span>
         </div>
-        <p class="footer-desc">The ultimate productivity companion for text acquisition. Built on privacy, speed, and offline AI accuracy.</p>
-        <p class="footer-copyright">&copy; 2026 Textora. All rights reserved.<br>Not affiliated with Google Inc. or Chrome Web Store.</p>
+        <p class="footer-desc">The ultimate productivity companion for text acquisition. Built on privacy, speed, and
+          offline AI accuracy.</p>
+        <p class="footer-copyright">&copy; 2026 Witcopy. All rights reserved.<br>Not affiliated with Google Inc. or
+          Chrome Web Store.</p>
       </div>
-      
+
       <!-- Column 2: Product Quick Links -->
       <div class="footer-links-col">
         <h5>Product</h5>
         <a href="#features" id="footer-link-features"><i class="fas fa-circle-check footer-link-icon"></i> Features</a>
         <a href="#guide" id="footer-link-guide"><i class="fas fa-circle-check footer-link-icon"></i> Setup Guide</a>
-        <a href="#playground" id="footer-link-playground"><i class="fas fa-circle-check footer-link-icon"></i> Live Sandbox</a>
-        <a href="textora-extension.zip" download id="footer-link-download"><i class="fas fa-file-archive footer-link-icon"></i> Download ZIP</a>
+        <a href="#playground" id="footer-link-playground"><i class="fas fa-circle-check footer-link-icon"></i> Live
+          Sandbox</a>
+        <a href="witcopy-extension.zip" download id="footer-link-download"><i
+            class="fas fa-file-archive footer-link-icon"></i> Download ZIP</a>
+        <a href="pages/contact.html" id="footer-link-contact"><i class="fas fa-envelope footer-link-icon"></i>
+          Contact</a>
+        <a href="pages/feedback.html" id="footer-link-feedback"><i class="fas fa-star footer-link-icon"></i>
+          Feedback</a>
       </div>
 
       <!-- Column 3: Founder Card -->
@@ -579,17 +626,21 @@
               <span class="founder-role">Creator & Developer</span>
             </div>
           </div>
-          <p class="founder-bio">Passionate developer crafting digital tools to streamline productivity, enhance web workflows, and solve everyday problems.</p>
+          <p class="founder-bio">Passionate developer crafting digital tools to streamline productivity, enhance web
+            workflows, and solve everyday problems.</p>
           <div class="founder-socials">
-            <a href="https://github.com/Iamsushantgautam" target="_blank" class="founder-social-btn github" id="founder-link-github" aria-label="GitHub">
+            <a href="https://github.com/Iamsushantgautam" target="_blank" class="founder-social-btn github"
+              id="founder-link-github" aria-label="GitHub">
               <i class="fab fa-github"></i>
               <span>GitHub</span>
             </a>
-            <a href="https://www.linkedin.com/in/iamsushantgautam" target="_blank" class="founder-social-btn linkedin" id="founder-link-linkedin" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/iamsushantgautam" target="_blank" class="founder-social-btn linkedin"
+              id="founder-link-linkedin" aria-label="LinkedIn">
               <i class="fab fa-linkedin"></i>
               <span>LinkedIn</span>
             </a>
-            <a href="https://sushant.online" target="_blank" class="founder-social-btn portfolio" id="founder-link-portfolio" aria-label="Portfolio">
+            <a href="https://sushant.online" target="_blank" class="founder-social-btn portfolio"
+              id="founder-link-portfolio" aria-label="Portfolio">
               <i class="fas fa-globe"></i>
               <span>Portfolio</span>
             </a>
@@ -602,4 +653,5 @@
   <!-- Script for Interactive Playground -->
   <script src="script.js?v=1.1"></script>
 </body>
+
 </html>

@@ -1,0 +1,357 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback &ndash; Witcopy</title>
+  <meta name="description" content="Share your experience with Witcopy. Your feedback shapes the future of the extension.">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../style.css?v=1.7">
+  <style>
+    .feedback-page {
+      padding-top: 100px;
+      padding-bottom: 80px;
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse at 20% 20%, rgba(181,23,158,0.05) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(0,82,204,0.05) 0%, transparent 50%),
+        var(--bg-main);
+    }
+    .feedback-page-header { text-align: center; margin-bottom: 52px; }
+    .feedback-page-header .page-eyebrow {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em;
+      color: var(--color-pink); background: rgba(181,23,158,0.07); border: 1px solid rgba(181,23,158,0.18);
+      padding: 5px 14px; border-radius: 999px; margin-bottom: 16px;
+    }
+    .feedback-page-header h1 { font-size: 2.8rem; font-weight: 800; color: var(--text-primary); line-height: 1.15; margin-bottom: 12px; }
+    .feedback-page-header p { font-size: 1rem; color: var(--text-secondary); max-width: 500px; margin: 0 auto; line-height: 1.65; }
+    .feedback-grid { display: grid; grid-template-columns: 320px 1fr; gap: 28px; align-items: start; }
+    .feedback-left { display: flex; flex-direction: column; gap: 20px; position: sticky; top: 96px; }
+    .star-card {
+      background: var(--bg-surface); border: 1px solid var(--border-color);
+      border-radius: var(--border-radius-lg); padding: 32px 28px; box-shadow: var(--shadow-sm);
+      text-align: center; display: flex; flex-direction: column; align-items: center; gap: 16px;
+    }
+    .star-card-icon {
+      width: 56px; height: 56px; border-radius: 16px;
+      background: linear-gradient(135deg, rgba(245,158,11,0.15), rgba(202,138,4,0.1));
+      border: 1px solid rgba(202,138,4,0.2);
+      display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: #f59e0b;
+    }
+    .star-card h3 { font-size: 1rem; font-weight: 700; color: var(--text-primary); }
+    .star-card p { font-size: 0.82rem; color: var(--text-muted); margin-top: -8px; }
+    .stars-row { display: flex; gap: 6px; justify-content: center; }
+    .star {
+      background: none; border: none; cursor: pointer; font-size: 2.2rem; color: #e2e8f0;
+      padding: 2px; line-height: 1; transition: color 0.15s, transform 0.15s;
+    }
+    .star:hover, .star.active { color: #f59e0b; transform: scale(1.2); }
+    .rating-badge {
+      display: inline-flex; align-items: center; gap: 6px; padding: 5px 16px; border-radius: 999px;
+      background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.2);
+      font-size: 0.82rem; font-weight: 700; color: #b45309; min-height: 28px; transition: all 0.2s;
+    }
+    .stats-side-card {
+      background: var(--bg-surface); border: 1px solid var(--border-color);
+      border-radius: var(--border-radius-md); padding: 24px; box-shadow: var(--shadow-sm);
+    }
+    .stats-side-card h4 { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); margin-bottom: 16px; }
+    .stat-row { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border-color); }
+    .stat-row:last-child { border-bottom: none; }
+    .stat-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .stat-row span:nth-child(2) { font-size: 0.85rem; color: var(--text-secondary); flex: 1; }
+    .stat-row strong { font-size: 0.82rem; color: var(--text-primary); }
+    .feedback-form-card {
+      background: var(--bg-surface); border: 1px solid var(--border-color);
+      border-radius: var(--border-radius-lg); padding: 44px 48px; box-shadow: var(--shadow-sm);
+    }
+    .feedback-form-card h2 { font-size: 1.65rem; font-weight: 800; color: var(--text-primary); margin-bottom: 6px; }
+    .feedback-form-card > p { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 32px; }
+    .feature-check-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .feat-check {
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      padding: 16px 10px; border: 1.5px solid var(--border-color); border-radius: 12px;
+      background: var(--bg-main); cursor: pointer; transition: all 0.2s; text-align: center; user-select: none;
+    }
+    .feat-check input[type="checkbox"] { display: none; }
+    .feat-check .feat-icon { font-size: 1.3rem; line-height: 1; }
+    .feat-check .feat-label { font-size: 0.75rem; font-weight: 600; color: var(--text-secondary); }
+    .feat-check:hover { border-color: var(--color-primary); background: rgba(0,82,204,0.03); }
+    .feat-check:has(input:checked) { border-color: var(--color-primary); background: rgba(0,82,204,0.07); }
+    .feat-check:has(input:checked) .feat-label { color: var(--color-primary); }
+    .feat-check:has(input:checked) .feat-icon { color: var(--color-primary) !important; }
+    .submit-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .btn-submit-lg { padding: 14px 32px; font-size: 1rem; border-radius: 10px; flex: 1; justify-content: center; min-width: 180px; }
+    .submit-note { font-size: 0.78rem; color: var(--text-muted); line-height: 1.4; }
+    @media (max-width: 900px) {
+      .feedback-grid { grid-template-columns: 1fr; }
+      .feedback-left { position: static; flex-direction: row; flex-wrap: wrap; }
+      .star-card, .stats-side-card { flex: 1 1 280px; }
+      .feedback-page-header h1 { font-size: 2rem; }
+    }
+    @media (max-width: 640px) {
+      .feedback-form-card { padding: 28px 20px; }
+      .feature-check-grid { grid-template-columns: repeat(2, 1fr); }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="brand">
+        <img src="../icon128.png" alt="Witcopy Logo" class="brand-logo">
+        <span class="brand-name">Witcopy</span>
+      </a>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="../index.html#features" class="nav-link">Features</a>
+        <a href="../index.html#guide" class="nav-link">Setup Guide</a>
+        <a href="../index.html#playground" class="nav-link">Live Demo</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="feedback.html" class="nav-link nav-link-active">Feedback</a>
+      </nav>
+      <div class="nav-cta-wrapper">
+        <a href="../witcopy-extension.zip" download class="btn btn-primary btn-nav" id="nav-install-btn">
+          <i class="fas fa-file-archive"></i> Download ZIP
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="feedback-page">
+    <div class="container">
+
+      <div class="feedback-page-header">
+        <div class="page-eyebrow"><i class="fas fa-star"></i> Share Your Experience</div>
+        <h1>Your Feedback <span class="gradient-text">Matters.</span></h1>
+        <p>Tell us what you love, what is broken, and what you would like to see next. Every response is read personally by Sushant.</p>
+      </div>
+
+      <div class="feedback-grid">
+
+        <div class="feedback-left">
+          <div class="star-card" id="feedback-rating-card">
+            <div class="star-card-icon"><i class="fas fa-medal"></i></div>
+            <h3>Rate Witcopy</h3>
+            <p>Click a star to rate</p>
+            <div class="stars-row" id="star-rating-group" role="group" aria-label="Star rating">
+              <button type="button" class="star" data-value="1" id="star-1" aria-label="1 star"><i class="fas fa-star"></i></button>
+              <button type="button" class="star" data-value="2" id="star-2" aria-label="2 stars"><i class="fas fa-star"></i></button>
+              <button type="button" class="star" data-value="3" id="star-3" aria-label="3 stars"><i class="fas fa-star"></i></button>
+              <button type="button" class="star" data-value="4" id="star-4" aria-label="4 stars"><i class="fas fa-star"></i></button>
+              <button type="button" class="star" data-value="5" id="star-5" aria-label="5 stars"><i class="fas fa-star"></i></button>
+            </div>
+            <div class="rating-badge" id="rating-badge-text">
+              <i class="fas fa-star" style="font-size:0.7rem; color:#f59e0b;"></i>
+              <span>Select a rating</span>
+            </div>
+          </div>
+
+          <div class="stats-side-card">
+            <h4>What we focus on</h4>
+            <div class="stat-row">
+              <div class="stat-dot" style="background:#0052cc;"></div>
+              <span>Privacy &amp; Security</span>
+              <strong>Core</strong>
+            </div>
+            <div class="stat-row">
+              <div class="stat-dot" style="background:#00b0ff;"></div>
+              <span>Performance</span>
+              <strong>Priority</strong>
+            </div>
+            <div class="stat-row">
+              <div class="stat-dot" style="background:#b5179e;"></div>
+              <span>OCR Accuracy</span>
+              <strong>AI-powered</strong>
+            </div>
+            <div class="stat-row">
+              <div class="stat-dot" style="background:#7c3aed;"></div>
+              <span>User Experience</span>
+              <strong>Ongoing</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="feedback-form-card" id="feedback-form-card">
+          <h2>Share Your <span class="gradient-text">Thoughts.</span></h2>
+          <p>Help us build a better experience &mdash; every response shapes what we build next.</p>
+
+          <div class="form-success-banner" id="feedback-success-banner" style="display:none;">
+            <div class="success-icon"><i class="fas fa-check-circle"></i></div>
+            <div>
+              <strong>Feedback received!</strong>
+              <p>Thank you &mdash; your response helps us improve Witcopy for everyone.</p>
+            </div>
+          </div>
+
+          <form class="contact-form" id="feedback-form">
+            <input type="hidden" name="rating" id="rating-input" value="Not rated">
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="feedback-name">Your Name <span style="font-size:0.78rem;color:var(--text-muted)">(optional)</span></label>
+                <div class="input-wrapper">
+                  <i class="fas fa-user input-icon"></i>
+                  <input type="text" id="feedback-name" name="name" placeholder="Your name" autocomplete="name">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="feedback-email">Email <span style="font-size:0.78rem;color:var(--text-muted)">(optional)</span></label>
+                <div class="input-wrapper">
+                  <i class="fas fa-envelope input-icon"></i>
+                  <input type="email" id="feedback-email" name="email" placeholder="you@example.com" autocomplete="email">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Which feature do you use most?</label>
+              <div class="input-wrapper">
+                <i class="fas fa-puzzle-piece input-icon"></i>
+                <select id="feedback-feature" name="most_used_feature">
+                  <option value="" disabled selected>Pick a feature&hellip;</option>
+                  <option value="Selected Area">Selected Area</option>
+                  <option value="Image OCR">Image OCR</option>
+                  <option value="Copy from Link">Copy from Link</option>
+                  <option value="Full Page Copy">Full Page Copy</option>
+                  <option value="Clipboard History">Clipboard History</option>
+                </select>
+                <i class="fas fa-chevron-down select-arrow"></i>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>What is working well?</label>
+              <div class="feature-check-grid" id="feedback-pros-group">
+                <label class="feat-check">
+                  <input type="checkbox" name="pros" value="Speed">
+                  <i class="fas fa-bolt feat-icon" style="color:#f59e0b;"></i>
+                  <span class="feat-label">Speed</span>
+                </label>
+                <label class="feat-check">
+                  <input type="checkbox" name="pros" value="Accuracy">
+                  <i class="fas fa-bullseye feat-icon" style="color:#0052cc;"></i>
+                  <span class="feat-label">Accuracy</span>
+                </label>
+                <label class="feat-check">
+                  <input type="checkbox" name="pros" value="Privacy">
+                  <i class="fas fa-lock feat-icon" style="color:#00b0ff;"></i>
+                  <span class="feat-label">Privacy</span>
+                </label>
+                <label class="feat-check">
+                  <input type="checkbox" name="pros" value="Easy to use">
+                  <i class="fas fa-hand-pointer feat-icon" style="color:#7c3aed;"></i>
+                  <span class="feat-label">Easy to use</span>
+                </label>
+                <label class="feat-check">
+                  <input type="checkbox" name="pros" value="Design">
+                  <i class="fas fa-palette feat-icon" style="color:#b5179e;"></i>
+                  <span class="feat-label">Design</span>
+                </label>
+                <label class="feat-check">
+                  <input type="checkbox" name="pros" value="OCR Quality">
+                  <i class="fas fa-brain feat-icon" style="color:#0052cc;"></i>
+                  <span class="feat-label">OCR Quality</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="feedback-message">Tell us more <span style="font-size:0.78rem;color:var(--text-muted)">(optional)</span></label>
+              <textarea id="feedback-message" name="message" rows="5"
+                placeholder="What should we improve? Any bugs you found? Features you would love to see?"></textarea>
+            </div>
+
+            <div class="form-error-banner" id="feedback-error-banner" style="display:none;">
+              <i class="fas fa-exclamation-circle"></i>
+              <div>
+                <strong>Something went wrong.</strong>
+                <p>Please try again or email <a href="mailto:iamsushantgautam@gmail.com" class="text-indigo">iamsushantgautam@gmail.com</a></p>
+              </div>
+            </div>
+
+            <div class="submit-row">
+              <button type="submit" class="btn btn-primary btn-form-submit btn-submit-lg" id="feedback-submit-btn">
+                <i class="fas fa-paper-plane"></i> Submit Feedback
+              </button>
+              <p class="submit-note">Your data is never shared.<br>No account needed.</p>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    const stars = document.querySelectorAll('.star');
+    const ratingInput = document.getElementById('rating-input');
+    const ratingBadge = document.getElementById('rating-badge-text');
+    const labels = ['', 'Poor', 'Fair', 'Good', 'Great', 'Excellent!'];
+    let selectedRating = 0;
+
+    stars.forEach(star => {
+      star.addEventListener('mouseover', () => highlightStars(+star.dataset.value));
+      star.addEventListener('mouseout', () => highlightStars(selectedRating));
+      star.addEventListener('click', () => {
+        selectedRating = +star.dataset.value;
+        ratingInput.value = selectedRating + '/5 - ' + labels[selectedRating];
+        ratingBadge.innerHTML = '<i class="fas fa-star" style="font-size:0.7rem;color:#f59e0b;"></i> <span>' + labels[selectedRating] + ' (' + selectedRating + '/5)</span>';
+        highlightStars(selectedRating);
+      });
+    });
+
+    function highlightStars(count) {
+      stars.forEach(s => s.classList.toggle('active', +s.dataset.value <= count));
+    }
+
+    const feedbackForm = document.getElementById('feedback-form');
+    const feedbackBtn = document.getElementById('feedback-submit-btn');
+    const feedbackBanner = document.getElementById('feedback-success-banner');
+    const feedbackErr = document.getElementById('feedback-error-banner');
+
+    feedbackForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      feedbackErr.style.display = 'none';
+      feedbackBtn.disabled = true;
+      feedbackBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+      const data = new FormData(feedbackForm);
+      data.append('access_key', '0a33001d-99d2-4221-a5b9-721ae3e376df');
+      data.append('subject', 'New Feedback - Witcopy');
+
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: data
+        });
+        const json = await res.json();
+        if (json.success === true) {
+          feedbackForm.style.display = 'none';
+          feedbackBanner.style.display = 'flex';
+          feedbackBanner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          throw new Error(json.message || 'error');
+        }
+      } catch {
+        feedbackBtn.disabled = false;
+        feedbackBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Feedback';
+        feedbackErr.style.display = 'flex';
+        feedbackErr.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    });
+  </script>
+</body>
+</html>

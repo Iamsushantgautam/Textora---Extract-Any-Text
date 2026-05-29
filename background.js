@@ -75,14 +75,14 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 });
 
 chrome.commands.onCommand.addListener((command) => {
-  console.log('Textora command received:', command);
+  console.log('Witcopy command received:', command);
   chrome.tabs.query({ active: true, lastFocusedWindow: true }, (tabs) => {
     const activeTab = tabs[0];
     if (!activeTab || !activeTab.id) {
-      console.warn('Textora: No active tab found in last focused window.');
+      console.warn('Witcopy: No active tab found in last focused window.');
       return;
     }
-    console.log('Textora targeting tab:', activeTab.id, activeTab.url);
+    console.log('Witcopy targeting tab:', activeTab.id, activeTab.url);
     
     let action = '';
     if (command === 'run_select_area') {
@@ -97,9 +97,9 @@ chrome.commands.onCommand.addListener((command) => {
       const sendMsg = () => {
         chrome.tabs.sendMessage(activeTab.id, { action }, (response) => {
           if (chrome.runtime.lastError) {
-            console.warn('Textora: Error sending message to content script:', chrome.runtime.lastError.message);
+            console.warn('Witcopy: Error sending message to content script:', chrome.runtime.lastError.message);
           } else {
-            console.log('Textora: Command sent successfully:', action);
+            console.log('Witcopy: Command sent successfully:', action);
           }
         });
       };
@@ -107,20 +107,20 @@ chrome.commands.onCommand.addListener((command) => {
       // Ping tab to check if content script is loaded
       chrome.tabs.sendMessage(activeTab.id, { action: 'PING' }, (resp) => {
         if (chrome.runtime.lastError) {
-          console.log('Textora: Content script not loaded. Injecting scripts...', chrome.runtime.lastError.message);
+          console.log('Witcopy: Content script not loaded. Injecting scripts...', chrome.runtime.lastError.message);
           // If not loaded, inject libraries and content script
           chrome.scripting.executeScript({
             target: { tabId: activeTab.id },
             files: ['lib/tesseract.min.js', 'ocr.js', 'content.js']
           }).then(() => {
-            console.log('Textora: Scripts injected successfully.');
+            console.log('Witcopy: Scripts injected successfully.');
             setTimeout(sendMsg, 120);
           }).catch((err) => {
-            console.error('Textora: Script injection failed:', err);
+            console.error('Witcopy: Script injection failed:', err);
           });
         } else {
           // If loaded, send command immediately
-          console.log('Textora: Content script is responsive (PING received PONG).');
+          console.log('Witcopy: Content script is responsive (PING received PONG).');
           sendMsg();
         }
       });

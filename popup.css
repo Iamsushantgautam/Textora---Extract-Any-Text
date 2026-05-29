@@ -755,6 +755,25 @@ body {
   color: var(--text1);
 }
 
+.web-link {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5.5px;
+  border-radius: 6px;
+  transition: all var(--transition);
+  text-decoration: none;
+}
+
+.web-link:hover {
+  background: var(--surface2);
+  color: var(--text1);
+}
+
 .settings-panel {
   position: absolute;
   top: 0;

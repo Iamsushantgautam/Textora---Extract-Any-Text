@@ -1,4 +1,4 @@
-# Textora – Extract Any Text
+# Witcopy – Extract Any Text
 
 A powerful, premium Chrome Extension (Manifest V3) that allows you to copy text from difficult sources on the web, including **images (OCR)**, **hyperlinks**, and specific **visual areas** regardless of the underlying DOM structure.
 

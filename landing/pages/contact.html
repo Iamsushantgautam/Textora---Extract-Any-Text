@@ -1,0 +1,307 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us &ndash; Witcopy</title>
+  <meta name="description" content="Get in touch with the Witcopy team. Report bugs, ask questions, or just say hello.">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../style.css?v=1.7">
+  <style>
+    .contact-page {
+      padding-top: 100px;
+      padding-bottom: 80px;
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse at 20% 20%, rgba(0,82,204,0.05) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(0,176,255,0.04) 0%, transparent 50%),
+        var(--bg-main);
+    }
+    .contact-page-header { text-align: center; margin-bottom: 52px; }
+    .contact-page-header .page-eyebrow {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em;
+      color: var(--color-primary); background: rgba(0,82,204,0.07); border: 1px solid rgba(0,82,204,0.16);
+      padding: 5px 14px; border-radius: 999px; margin-bottom: 16px;
+    }
+    .contact-page-header h1 { font-size: 2.8rem; font-weight: 800; color: var(--text-primary); line-height: 1.15; margin-bottom: 12px; }
+    .contact-page-header p { font-size: 1rem; color: var(--text-secondary); max-width: 500px; margin: 0 auto; line-height: 1.65; }
+    .contact-grid { display: grid; grid-template-columns: 320px 1fr; gap: 28px; align-items: start; }
+    .contact-left-col { display: flex; flex-direction: column; gap: 20px; position: sticky; top: 96px; }
+    .contact-info-card {
+      background: var(--bg-surface); border: 1px solid var(--border-color);
+      border-radius: var(--border-radius-lg); padding: 32px 28px; box-shadow: var(--shadow-sm);
+      display: flex; flex-direction: column; gap: 20px;
+    }
+    .contact-info-card-header { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; }
+    .contact-info-card-icon {
+      width: 56px; height: 56px; border-radius: 16px;
+      background: linear-gradient(135deg, rgba(0,82,204,0.12), rgba(0,176,255,0.08));
+      border: 1px solid rgba(0,82,204,0.18);
+      display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--color-primary);
+    }
+    .contact-info-card-header h3 { font-size: 1rem; font-weight: 700; color: var(--text-primary); }
+    .contact-info-card-header p { font-size: 0.82rem; color: var(--text-muted); margin-top: -4px; }
+    .contact-info-rows { display: flex; flex-direction: column; gap: 0; }
+    .contact-info-row { display: flex; align-items: flex-start; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--border-color); }
+    .contact-info-row:last-child { border-bottom: none; }
+    .cir-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; flex-shrink: 0; }
+    .cir-text h4 { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); margin-bottom: 3px; }
+    .cir-text p, .cir-text a { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4; }
+    .cir-text a { color: var(--color-primary); }
+    .cir-text a:hover { text-decoration: underline; }
+    .contact-social-card { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--border-radius-md); padding: 24px; box-shadow: var(--shadow-sm); }
+    .contact-social-card h4 { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); margin-bottom: 16px; }
+    .social-link-row { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border-color); text-decoration: none; transition: all 0.2s; }
+    .social-link-row:last-child { border-bottom: none; }
+    .social-link-row:hover .social-link-label { color: var(--color-primary); }
+    .social-link-row:hover { transform: translateX(3px); }
+    .slr-icon { width: 34px; height: 34px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; flex-shrink: 0; }
+    .social-link-label { font-size: 0.88rem; font-weight: 600; color: var(--text-secondary); flex: 1; transition: color 0.2s; }
+    .social-link-arrow { font-size: 0.7rem; color: var(--text-muted); }
+    .contact-form-card { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--border-radius-lg); padding: 44px 48px; box-shadow: var(--shadow-sm); }
+    .contact-form-card h2 { font-size: 1.65rem; font-weight: 800; color: var(--text-primary); margin-bottom: 6px; }
+    .contact-form-card > p { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 32px; }
+    .topic-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+    .topic-pill {
+      display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 999px;
+      font-size: 0.8rem; font-weight: 600; background: var(--bg-main); border: 1.5px solid var(--border-color);
+      color: var(--text-secondary); cursor: pointer; transition: all 0.2s; user-select: none;
+    }
+    .topic-pill input[type="radio"] { display: none; }
+    .topic-pill:hover { border-color: var(--color-primary); color: var(--color-primary); background: rgba(0,82,204,0.03); }
+    .topic-pill:has(input:checked) { background: rgba(0,82,204,0.08); border-color: var(--color-primary); color: var(--color-primary); }
+    .char-counter { font-size: 0.75rem; color: var(--text-muted); text-align: right; margin-top: 4px; }
+    .submit-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .btn-submit-lg { padding: 14px 32px; font-size: 1rem; border-radius: 10px; flex: 1; justify-content: center; min-width: 180px; }
+    .submit-note { font-size: 0.78rem; color: var(--text-muted); line-height: 1.4; }
+    @media (max-width: 900px) {
+      .contact-grid { grid-template-columns: 1fr; }
+      .contact-left-col { position: static; flex-direction: row; flex-wrap: wrap; }
+      .contact-info-card, .contact-social-card { flex: 1 1 280px; }
+      .contact-page-header h1 { font-size: 2rem; }
+    }
+    @media (max-width: 640px) {
+      .contact-form-card { padding: 28px 20px; }
+      .form-row { grid-template-columns: 1fr; }
+      .topic-pill { font-size: 0.76rem; padding: 7px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="brand">
+        <img src="../icon128.png" alt="Witcopy Logo" class="brand-logo">
+        <span class="brand-name">Witcopy</span>
+      </a>
+      <nav class="nav-menu" id="nav-menu">
+        <a href="../index.html#features" class="nav-link">Features</a>
+        <a href="../index.html#guide" class="nav-link">Setup Guide</a>
+        <a href="../index.html#playground" class="nav-link">Live Demo</a>
+        <a href="contact.html" class="nav-link nav-link-active">Contact</a>
+        <a href="feedback.html" class="nav-link">Feedback</a>
+      </nav>
+      <div class="nav-cta-wrapper">
+        <a href="../witcopy-extension.zip" download class="btn btn-primary btn-nav" id="nav-install-btn">
+          <i class="fas fa-file-archive"></i> Download ZIP
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="contact-page">
+    <div class="container">
+
+      <div class="contact-page-header">
+        <div class="page-eyebrow"><i class="fas fa-envelope"></i> Reach Out</div>
+        <h1>Get in <span class="gradient-text">Touch.</span></h1>
+        <p>Have a question, found a bug, or want to collaborate? We read every message personally.</p>
+      </div>
+
+      <div class="contact-grid">
+
+        <div class="contact-left-col">
+
+          <div class="contact-info-card">
+            <div class="contact-info-card-header">
+              <div class="contact-info-card-icon"><i class="fas fa-headset"></i></div>
+              <h3>Contact Info</h3>
+              <p>Multiple ways to reach us</p>
+            </div>
+            <div class="contact-info-rows">
+              <div class="contact-info-row">
+                <div class="cir-icon" style="background:rgba(0,82,204,0.08); color:var(--color-primary);"><i class="fas fa-envelope"></i></div>
+                <div class="cir-text">
+                  <h4>Email</h4>
+                  <a href="mailto:iamsushantgautam@gmail.com">iamsushantgautam@gmail.com</a>
+                </div>
+              </div>
+              <div class="contact-info-row">
+                <div class="cir-icon" style="background:rgba(0,0,0,0.05); color:#24292e;"><i class="fab fa-github"></i></div>
+                <div class="cir-text">
+                  <h4>GitHub Issues</h4>
+                  <a href="https://github.com/Iamsushantgautam" target="_blank">Open an issue &rarr;</a>
+                </div>
+              </div>
+              <div class="contact-info-row">
+                <div class="cir-icon" style="background:rgba(0,176,255,0.08); color:var(--color-cyan);"><i class="fas fa-clock"></i></div>
+                <div class="cir-text">
+                  <h4>Response Time</h4>
+                  <p>Usually within 24&ndash;48 hours</p>
+                </div>
+              </div>
+              <div class="contact-info-row">
+                <div class="cir-icon" style="background:rgba(181,23,158,0.08); color:var(--color-pink);"><i class="fas fa-star"></i></div>
+                <div class="cir-text">
+                  <h4>Leave a Rating</h4>
+                  <a href="feedback.html">Share your feedback &rarr;</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-social-card">
+            <h4>Find me online</h4>
+            <a href="https://github.com/Iamsushantgautam" target="_blank" class="social-link-row">
+              <div class="slr-icon" style="background:rgba(0,0,0,0.06); color:#24292e;"><i class="fab fa-github"></i></div>
+              <span class="social-link-label">GitHub</span>
+              <i class="fas fa-arrow-right social-link-arrow"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/iamsushantgautam" target="_blank" class="social-link-row">
+              <div class="slr-icon" style="background:rgba(0,119,181,0.08); color:#0077b5;"><i class="fab fa-linkedin"></i></div>
+              <span class="social-link-label">LinkedIn</span>
+              <i class="fas fa-arrow-right social-link-arrow"></i>
+            </a>
+            <a href="https://sushant.online" target="_blank" class="social-link-row">
+              <div class="slr-icon" style="background:rgba(0,82,204,0.08); color:var(--color-primary);"><i class="fas fa-globe"></i></div>
+              <span class="social-link-label">Portfolio</span>
+              <i class="fas fa-arrow-right social-link-arrow"></i>
+            </a>
+          </div>
+
+        </div>
+
+        <div class="contact-form-card" id="contact-form-card">
+          <h2>Send a <span class="gradient-text">Message.</span></h2>
+          <p>All fields marked <span style="color:var(--color-pink)">*</span> are required.</p>
+
+          <div class="form-success-banner" id="contact-success-banner" style="display:none;">
+            <div class="success-icon"><i class="fas fa-check-circle"></i></div>
+            <div>
+              <strong>Message sent!</strong>
+              <p>Thanks for reaching out. We will reply within 24&ndash;48 hours.</p>
+            </div>
+          </div>
+
+          <form class="contact-form" id="contact-form">
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contact-name">Full Name <span class="req">*</span></label>
+                <div class="input-wrapper">
+                  <i class="fas fa-user input-icon"></i>
+                  <input type="text" id="contact-name" name="name" placeholder="Your name" required autocomplete="name">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="contact-email">Email <span class="req">*</span></label>
+                <div class="input-wrapper">
+                  <i class="fas fa-envelope input-icon"></i>
+                  <input type="email" id="contact-email" name="email" placeholder="you@example.com" required autocomplete="email">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Topic <span class="req">*</span></label>
+              <div class="topic-pills" id="topic-pills" role="radiogroup">
+                <label class="topic-pill"><input type="radio" name="topic" value="Bug Report" required> <i class="fas fa-bug"></i> Bug Report</label>
+                <label class="topic-pill"><input type="radio" name="topic" value="Feature Request"> <i class="fas fa-lightbulb"></i> Feature Request</label>
+                <label class="topic-pill"><input type="radio" name="topic" value="General Question"> <i class="fas fa-circle-question"></i> Question</label>
+                <label class="topic-pill"><input type="radio" name="topic" value="Partnership"> <i class="fas fa-handshake"></i> Partnership</label>
+                <label class="topic-pill"><input type="radio" name="topic" value="Other"> <i class="fas fa-paperclip"></i> Other</label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-message">Message <span class="req">*</span></label>
+              <textarea id="contact-message" name="message" rows="6"
+                placeholder="Describe your question, issue, or idea in detail..." required
+                maxlength="2000"
+                oninput="document.getElementById('char-count').textContent = this.value.length"></textarea>
+              <div class="char-counter"><span id="char-count">0</span> / 2000</div>
+            </div>
+
+            <div class="form-error-banner" id="contact-error-banner" style="display:none;">
+              <i class="fas fa-exclamation-circle"></i>
+              <div>
+                <strong>Something went wrong.</strong>
+                <p>Please try again or email <a href="mailto:iamsushantgautam@gmail.com" class="text-indigo">iamsushantgautam@gmail.com</a> directly.</p>
+              </div>
+            </div>
+
+            <div class="submit-row">
+              <button type="submit" class="btn btn-primary btn-form-submit btn-submit-lg" id="contact-submit-btn">
+                <i class="fas fa-paper-plane"></i> Send Message
+              </button>
+              <p class="submit-note">Your data is never shared.<br>No account needed.</p>
+            </div>
+
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    const form = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('contact-submit-btn');
+    const successBanner = document.getElementById('contact-success-banner');
+    const errBanner = document.getElementById('contact-error-banner');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errBanner.style.display = 'none';
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+      const data = new FormData(form);
+      data.append('access_key', '0a33001d-99d2-4221-a5b9-721ae3e376df');
+      data.append('subject', 'New Contact Message - Witcopy');
+
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: data
+        });
+        const json = await res.json();
+        if (json.success === true) {
+          form.style.display = 'none';
+          successBanner.style.display = 'flex';
+          successBanner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          throw new Error(json.message || 'error');
+        }
+      } catch {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+        errBanner.style.display = 'flex';
+        errBanner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    });
+  </script>
+</body>
+</html>

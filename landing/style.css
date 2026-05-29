@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Textora Landing Page - Design System & Styling (Light Mode Exclusive)
+   Witcopy Landing Page - Design System & Styling (Light Mode Exclusive)
    ========================================================================== */
 
 /* --- CSS VARIABLES & TOKENS --- */
@@ -1999,6 +1999,576 @@ code {
   }
   
   .tool-btn {
+    justify-content: center;
+  }
+}
+
+/* ==========================================================================
+   FORM PAGES — Contact, Feedback, Thanks
+   ========================================================================== */
+
+.nav-link-active {
+  color: var(--color-primary) !important;
+  font-weight: 600;
+}
+
+/* --- Inline Success Banner (shown after AJAX submit) --- */
+.form-success-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: linear-gradient(135deg, rgba(0, 176, 255, 0.07), rgba(0, 82, 204, 0.05));
+  border: 1.5px solid rgba(0, 82, 204, 0.18);
+  border-radius: var(--border-radius-md);
+  padding: 24px 28px;
+  margin-bottom: 24px;
+  animation: fadeInUp 0.4s ease both;
+}
+
+.form-success-banner .success-icon {
+  font-size: 2rem;
+  color: var(--color-primary);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.form-success-banner strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.form-success-banner p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* --- Inline Error Banner (shown on AJAX failure) --- */
+.form-error-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.06), rgba(220, 38, 38, 0.04));
+  border: 1.5px solid rgba(239, 68, 68, 0.25);
+  border-radius: var(--border-radius-md);
+  padding: 18px 22px;
+  animation: fadeInUp 0.35s ease both;
+}
+
+.form-error-banner > i {
+  font-size: 1.4rem;
+  color: #dc2626;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.form-error-banner strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #b91c1c;
+  margin-bottom: 3px;
+}
+
+.form-error-banner p {
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* --- Page Hero --- */
+.form-page-hero {
+  position: relative;
+  padding: 140px 0 70px 0;
+  background: radial-gradient(circle at 30% 50%, rgba(0, 82, 204, 0.05) 0%, transparent 65%),
+              radial-gradient(circle at 70% 30%, rgba(0, 176, 255, 0.04) 0%, transparent 60%);
+  overflow: hidden;
+}
+
+.feedback-hero {
+  background: radial-gradient(circle at 30% 50%, rgba(181, 23, 158, 0.05) 0%, transparent 65%),
+              radial-gradient(circle at 70% 30%, rgba(124, 58, 237, 0.04) 0%, transparent 60%);
+}
+
+.form-page-glow {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(0, 82, 204, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.form-page-hero-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.form-page-title {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--text-primary);
+}
+
+.form-page-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  max-width: 520px;
+}
+
+/* --- Form Section Layout --- */
+.form-section {
+  padding: 0 0 80px 0;
+}
+
+.form-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+.feedback-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* --- Info Cards (Contact Page) --- */
+.form-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: sticky;
+  top: 100px;
+}
+
+.info-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+}
+
+.info-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-color-focus);
+}
+
+.info-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.info-card h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.info-card p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* --- Form Card --- */
+.form-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  padding: 40px;
+  box-shadow: var(--shadow-sm);
+}
+
+.form-card-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.form-card-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 28px;
+}
+
+/* --- Form Fields --- */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+}
+
+.req {
+  color: var(--color-pink);
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 14px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.input-wrapper input,
+.input-wrapper select {
+  width: 100%;
+  padding: 11px 14px 11px 38px;
+  background: var(--bg-input);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: var(--text-primary);
+  transition: all var(--transition-fast);
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+}
+
+.input-wrapper input:focus,
+.input-wrapper select:focus {
+  border-color: var(--color-primary);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.08);
+}
+
+.input-wrapper input::placeholder {
+  color: var(--text-muted);
+}
+
+.select-arrow {
+  position: absolute;
+  right: 14px;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  pointer-events: none;
+}
+
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 16px;
+  background: var(--bg-input);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: var(--text-primary);
+  resize: vertical;
+  transition: all var(--transition-fast);
+  outline: none;
+  line-height: 1.6;
+  min-height: 120px;
+}
+
+.contact-form textarea:focus {
+  border-color: var(--color-primary);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.08);
+}
+
+.contact-form textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.btn-form-submit {
+  align-self: flex-start;
+  padding: 13px 28px;
+  font-size: 1rem;
+  border-radius: var(--border-radius-sm);
+}
+
+/* --- Feedback: Star Rating --- */
+.feedback-intro-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  padding: 28px 32px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.rating-card-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.rating-icon-badge {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(202, 138, 4, 0.1), rgba(202, 138, 4, 0.2));
+  border: 1px solid rgba(202, 138, 4, 0.2);
+  color: #ca8a04;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.rating-card-header h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.rating-card-header p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.star-rating {
+  display: flex;
+  gap: 8px;
+}
+
+.star {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 2rem;
+  color: #cbd5e1;
+  padding: 4px;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+  line-height: 1;
+}
+
+.star:hover,
+.star.active {
+  color: #f59e0b;
+  transform: scale(1.15);
+}
+
+.rating-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-top: -8px;
+}
+
+/* --- Feedback: Checkbox Pills --- */
+.checkbox-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.checkbox-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 14px;
+  background: var(--bg-main);
+  border: 1.5px solid var(--border-color);
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  user-select: none;
+}
+
+.checkbox-pill input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox-pill:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: rgba(0, 82, 204, 0.04);
+}
+
+.checkbox-pill:has(input:checked) {
+  background: rgba(0, 82, 204, 0.08);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+/* --- Thanks / Success Page --- */
+.thanks-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 120px 0 60px;
+  background: radial-gradient(circle at 50% 40%, rgba(0, 82, 204, 0.05) 0%, transparent 65%);
+}
+
+.thanks-glow {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(0, 176, 255, 0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.thanks-container {
+  display: flex;
+  justify-content: center;
+}
+
+.thanks-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  padding: 60px 48px;
+  text-align: center;
+  max-width: 520px;
+  width: 100%;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  animation: fadeInUp 0.5s ease both;
+}
+
+.thanks-icon-ring {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--primary-gradient);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  box-shadow: 0 8px 24px rgba(0, 82, 204, 0.25);
+  animation: popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s both;
+}
+
+.thanks-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.thanks-body {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 380px;
+}
+
+.thanks-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.5); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* --- Responsive: Form Pages --- */
+@media (max-width: 768px) {
+  .form-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .form-info-col {
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .info-card {
+    flex: 1 1 calc(50% - 8px);
+    min-width: 200px;
+  }
+
+  .form-page-title {
+    font-size: 2.2rem;
+  }
+
+  .form-card {
+    padding: 28px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .info-card {
+    flex: 1 1 100%;
+  }
+
+  .thanks-card {
+    padding: 40px 24px;
+  }
+
+  .btn-form-submit {
+    width: 100%;
     justify-content: center;
   }
 }

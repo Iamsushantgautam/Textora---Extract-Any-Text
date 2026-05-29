@@ -4,22 +4,22 @@ if (window.lastChromeRuntime === chrome.runtime) {
   window.lastChromeRuntime = chrome.runtime;
 
   chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
-    console.log('Textora content script received message:', msg);
+    console.log('Witcopy content script received message:', msg);
     if (msg.action === 'PING') {
       sendResponse({ status: 'pong' });
     }
     else if (msg.action === 'SELECT_AREA') {
-      console.log('Textora: Triggering SELECT_AREA selection mode.');
+      console.log('Witcopy: Triggering SELECT_AREA selection mode.');
       enableSelection();
       sendResponse({ status: 'started' });
     }
     else if (msg.action === 'BULK_OCR') {
-      console.log('Textora: Triggering BULK_OCR ocr selection mode.');
+      console.log('Witcopy: Triggering BULK_OCR ocr selection mode.');
       enableOcrSelection();
       sendResponse({ status: 'started' });
     }
     else if (msg.action === 'COPY_LINK') {
-      console.log('Textora: Triggering COPY_LINK link copy mode.');
+      console.log('Witcopy: Triggering COPY_LINK link copy mode.');
       enableLinkCopy();
       sendResponse({ status: 'started' });
     }
